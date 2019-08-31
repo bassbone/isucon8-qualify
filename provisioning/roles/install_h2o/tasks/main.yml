@@ -17,10 +17,5 @@
   become: yes
   become_user: root
   yum:
-    pkg: "{{ item }}"
+    pkg: ['cmake', 'openssl-devel', 'libuv', 'h2o']
     state: installed
-  with_items:
-    - cmake
-    - openssl-devel
-    - libuv
-    - h2o

@@ -4,7 +4,7 @@
   become_user: root
   group:
     name: isucon
-    gid: 1001
+    gid: 2001
     state: present
     system: no
 
@@ -13,7 +13,7 @@
   become_user: root
   user:
     name: isucon
-    uid: 1001
+    uid: 2001
     group: isucon
     password: isucon
     home: /home/isucon
@@ -35,41 +35,22 @@
   become: yes
   become_user: root
   yum:
-    pkg: "{{ item }}"
+    pkg: ['epel-release']
     state: installed
-  with_items:
-    - epel-release
 
 - name: Install Development Tools
   become: yes
   become_user: root
-  yum: name="{{ item }}" state=present
-  with_items:
-    - "@Development Tools"
+  yum:
+    pkg: ['@Development Tools']
+    state: present
 
 - name: Install packages
   become: yes
   become_user: root
   yum:
-    pkg: "{{ item }}"
+    pkg: ['autoconf', 'automake', 'curl', 'dstat', 'firewalld', 'gdbm-devel', 'git', 'jq', 'libffi-devel', 'libyaml-devel', 'ncurses-devel', 'openssl-devel', 'patch', 'readline-devel', 'sudo', 'zlib-devel']
     state: installed
-  with_items:
-    - autoconf
-    - automake
-    - curl
-    - dstat
-    - firewalld
-    - gdbm-devel
-    - git
-    - jq
-    - libffi-devel
-    - libyaml-devel
-    - ncurses-devel
-    - openssl-devel
-    - patch
-    - readline-devel
-    - sudo
-    - zlib-devel
 
 - name: Restart and enable firewalld
   become: yes

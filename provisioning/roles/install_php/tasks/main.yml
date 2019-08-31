@@ -17,19 +17,8 @@
   become: yes
   become_user: root
   yum:
-    pkg: "{{ item }}"
+    pkg: ['bzip2-devel', 'libcurl-devel', 'libicu-devel', 'libjpeg-turbo-devel', 'libpng-devel', 'libtidy-devel', 'libxml2-devel', 'libxslt-devel', 'readline-devel', 're2c']
     state: installed
-  with_items:
-    - bzip2-devel
-    - libcurl-devel
-    - libicu-devel
-    - libjpeg-turbo-devel
-    - libpng-devel
-    - libtidy-devel
-    - libxml2-devel
-    - libxslt-devel
-    - readline-devel
-    - re2c
 
 - name: Install PHP
   become: yes

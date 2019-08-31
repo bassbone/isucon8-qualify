@@ -3,13 +3,8 @@
   become: yes
   become_user: root
   yum:
-    pkg: "{{ item }}"
+    pkg: ['mariadb', 'mariadb-server', 'mariadb-devel', 'MySQL-python']
     state: installed
-  with_items:
-    - mariadb
-    - mariadb-server
-    - mariadb-devel
-    - MySQL-python
 
 - name: Setup my.cnf
   become: yes
