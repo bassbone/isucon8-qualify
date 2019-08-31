@@ -34,7 +34,7 @@
   become_user: root
   file:
     state: link
-    src: /etc/h2o/default-h2o.conf
+    src: /etc/h2o/php-h2o.conf
     dest: /etc/h2o/h2o.conf
 
 - name: Put torb.nodejs.service
