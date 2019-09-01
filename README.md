@@ -98,7 +98,7 @@ $ ./run_local.sh
 ```console
 $ cd bench
 $ ./bin/bench -h # ヘルプ確認
-$ ./bin/bench -remotes=127.0.0.1:8080 -output result.json
+$ ./bin/bench -remotes=127.0.0.1 -output result.json
 ```
 
 結果を見るには `sudo apt install jq` で jq をインストールしてから、
